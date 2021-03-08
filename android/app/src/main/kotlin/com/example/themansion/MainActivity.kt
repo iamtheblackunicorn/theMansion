@@ -1,4 +1,4 @@
-package com.example.themansion
+package com.blackunicorn.themansion
 
 import io.flutter.embedding.android.FlutterActivity
 
