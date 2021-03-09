@@ -19,4 +19,3 @@ double cardPadding = 10;
 double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
-double loadingViewSize = 100.0;
