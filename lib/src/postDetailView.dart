@@ -22,10 +22,13 @@ class PostDetailViewState extends State<PostDetailView> {
         postDB = value;
       });
     });
-    widget.postDBKey.then((String value) {
+    /*widget.postDBKey.then((String value) {
       setState(() {
         key = value;
       });
+    });*/
+    setState((){
+      key = widget.postDBKey;
     });
   }
   @override
@@ -49,7 +52,7 @@ class PostDetailViewState extends State<PostDetailView> {
           ]),
           backgroundColor: mainColor
         ),
-        backgroundColor: defaultBackGroundColor,
+        backgroundColor: mainColor,
         body: Center(
           child: Column(
             children: <Widget>[
@@ -105,8 +108,11 @@ class PostDetailViewState extends State<PostDetailView> {
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
                   AppLocalizations.of(context).visitWebsite,
-                  fontSize: stdFontSize,
-                  fontFamily: defaultFont
+                  style: TextStyle(
+                    color: accentColor,
+                    fontSize: stdFontSize,
+                    fontFamily: defaultFont
+                  )
                 ),
                 onPressed: () {
                   // do something

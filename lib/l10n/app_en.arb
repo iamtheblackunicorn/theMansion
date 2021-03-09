@@ -3,5 +3,6 @@
   "postOverViewScreen": "Posts",
   "readLabel": "Read",
   "byLabel": "by",
-  "visitWebsite": "View complete post"
+  "visitWebsite": "View complete post",
+  "headBackLabel": "Got it!"
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:async';
 import 'dart:convert';
+import 'constants.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -14,7 +15,7 @@ class APIStorage {
     try {
       final path = await _localPath;
       Response response = await dio.get(
-        url,
+        apiUrl,
         options: Options(
           responseType: ResponseType.json,
           followRedirects: true,

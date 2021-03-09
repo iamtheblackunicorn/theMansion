@@ -1,4 +1,7 @@
 import 'constants.dart';
+import 'apiHandler.dart';
+import 'postList.dart';
+import 'infoScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,34 +22,49 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
                   appTitle,
-                  fontSize: headingFontSize,
-                  fontFamily: headingFont
+                  style: new TextStyle(
+                    fontSize: headingFontSize,
+                    fontFamily: headingFont,
+                    color: accentColor
+                  )
                 )
               ),
-
+              SizedBox(height: headingSpacing),
               new RaisedButton(
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
                   '$postsLabel',
-                  fontSize: stdFontSize,
-                  fontFamily: defaultFont
+                  style: new TextStyle(
+                    fontSize: stdFontSize,
+                    fontFamily: defaultFont,
+                    color: mainColor
+                  )
                 ),
                 onPressed: () {
-                  // do something
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PostOverview(apistorage: APIStorage())),
+                  );
                 }
               ),
-
+              SizedBox(height: headingSpacing),
               new RaisedButton(
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
                   '$infoLabel',
-                  fontSize: stdFontSize,
-                  fontFamily: defaultFont
+                  style: new TextStyle(
+                    fontSize: stdFontSize,
+                    fontFamily: defaultFont,
+                    color: mainColor
+                  )
                 ),
                 onPressed: () {
-                  // do something
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InfoScreen()),
+                  );
                 }
               ),
 

@@ -1,4 +1,5 @@
 import 'constants.dart';
+import 'titleScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,6 +9,7 @@ class InfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String byLabel = AppLocalizations.of(context).byLabel;
     String infoLabel = AppLocalizations.of(context).infoScreenLabel;
+    String headBackLabel = AppLocalizations.of(context).headBackLabel;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -44,7 +46,7 @@ class InfoScreen extends StatelessWidget {
                     new Padding(
                       padding: EdgeInsets.all(stdRounding),
                       child: new Text(
-                        AppLocalizations.of(context).infoLabel,
+                        '$infoLabel',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: defaultFont,
@@ -67,18 +69,24 @@ class InfoScreen extends StatelessWidget {
                     ),
                   ]
                 )
-              )
-
+              ),
+              SizedBox(height: stdSpacing),
               new RaisedButton(
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
-                  appTitle,
-                  fontSize: stdFontSize,
-                  fontFamily: defaultFont
+                  '$headBackLabel',
+                  style: TextStyle(
+                    fontFamily: defaultFont,
+                    fontSize: stdFontSize,
+                    color: mainColor
+                  )
                 ),
                 onPressed: () {
-                  // do something
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
                 }
               ),
 

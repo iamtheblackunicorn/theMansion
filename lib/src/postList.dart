@@ -1,5 +1,6 @@
 import 'constants.dart';
 import 'apiHandler.dart';
+import 'postDetailView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -74,13 +75,13 @@ class PostOverviewState extends State<PostOverview> {
                           ),
                         ),
                         new Padding(
-                          padding: EdgeInsets.all(cardPadding),
+                          padding: EdgeInsets.all(stdPadding),
                           child: Text(
                             '${postDB[key][1]}',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: accentColor,
-                              fontSize: defaultFontSize
+                              fontSize: stdFontSize
                             ),
                           ),
                         )
@@ -106,7 +107,7 @@ class PostOverviewState extends State<PostOverview> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ClubDetailView(apistorage: APIStorage(), postDBKey: key)),
+                            MaterialPageRoute(builder: (context) => PostDetailView(apistorage: APIStorage(), postDBKey: key)),
                           );
                         }
                       )
