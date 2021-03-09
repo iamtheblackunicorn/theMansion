@@ -76,7 +76,7 @@ class PostDetailViewState extends State<PostDetailView> {
                           style: TextStyle(
                             color: accentColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: stdFontSize,
+                            fontSize: 25,
                             fontFamily: headingFont
                           ),
                         )
