@@ -43,3 +43,5 @@ app.*.map.json
 *.java
 Flutter-Debug.xcconfig
 Flutter-Release.xcconfig
+settings_aar.gradle
+.metadata
