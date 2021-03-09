@@ -55,3 +55,12 @@ class APIStorage {
     }
   }
 }
+
+bool isMap(Map<String,dynamic> myMap){
+  bool result = false;
+  if (myMap is Map<String,dynamic>){
+    result = true;
+  }
+  else {}
+  return result;
+}

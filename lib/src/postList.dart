@@ -46,7 +46,7 @@ class PostOverviewState extends State<PostOverview> {
         backgroundColor: mainColor
       ),
       backgroundColor: mainColor,
-      body: new ListView.builder(
+      body:new ListView.builder(
         itemCount: postDB.length,
         itemBuilder: (context, index) {
           String key = postDB.keys.elementAt(index);
