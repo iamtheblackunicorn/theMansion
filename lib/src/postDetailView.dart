@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'postList.dart';
 import 'constants.dart';
 import 'apiHandler.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -19,20 +22,17 @@ class PostDetailViewState extends State<PostDetailView> {
     super.initState();
     widget.apistorage.readCounter().then((dynamic value) {
       setState(() {
-        postDB = value;
+        postDB = json.decode(value);
       });
     });
-    /*widget.postDBKey.then((String value) {
-      setState(() {
-        key = value;
-      });
-    });*/
     setState((){
       key = widget.postDBKey;
     });
   }
   @override
   Widget build(BuildContext context) {
+    String date = postDB[key][0].split(' ')[0];
+    String postUrl = postDB[key][3];
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -53,11 +53,17 @@ class PostDetailViewState extends State<PostDetailView> {
           backgroundColor: mainColor
         ),
         backgroundColor: mainColor,
-        body: Center(
+        body: SingleChildScrollView(child: Center(
           child: Column(
             children: <Widget>[
               new Stack(
                 children: <Widget>[
+                  Image.network(
+                    '${postDB[key][4]}',
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                   new Positioned(
                     bottom: 0.2,
                     left: 0.2,
@@ -85,7 +91,7 @@ class PostDetailViewState extends State<PostDetailView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     new Text(
-                      '${postDB[key][0]}',
+                      '$date',
                       style: TextStyle(
                         color: accentColor,
                         fontSize: stdFontSize,
@@ -109,18 +115,25 @@ class PostDetailViewState extends State<PostDetailView> {
                 child: new Text(
                   AppLocalizations.of(context).visitWebsite,
                   style: TextStyle(
-                    color: accentColor,
+                    color: mainColor,
                     fontSize: stdFontSize,
                     fontFamily: defaultFont
                   )
                 ),
-                onPressed: () {
-                  // do something
+                onPressed: () async {
+                  try{
+                    await launch(postUrl);
+                  } catch (e) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PostOverview(apistorage: APIStorage())),
+                    );
+                  }
                 }
               ),
             ]
           )
-        )
+        ))
       );
     }
   }

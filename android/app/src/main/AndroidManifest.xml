@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blackunicorn.themansion">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="themansion"
         android:icon="@mipmap/ic_launcher">

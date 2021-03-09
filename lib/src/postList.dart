@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'constants.dart';
 import 'apiHandler.dart';
 import 'postDetailView.dart';
@@ -18,7 +19,7 @@ class PostOverviewState extends State<PostOverview> {
     super.initState();
     widget.apistorage.readCounter().then((dynamic value) {
       setState(() {
-        postDB = value;
+        postDB = json.decode(value);
       });
     });
   }
@@ -49,10 +50,11 @@ class PostOverviewState extends State<PostOverview> {
         itemCount: postDB.length,
         itemBuilder: (context, index) {
           String key = postDB.keys.elementAt(index);
-          return new Card(
+          return new SizedBox(width: stdWidth, child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(stdRounding)
             ),
+            color: accentColor,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -63,27 +65,30 @@ class PostOverviewState extends State<PostOverview> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Padding(
-                          padding: EdgeInsets.all(stdPadding),
+                          padding: EdgeInsets.all(cardPadding),
                           child: Text(
                             '$key',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: accentColor,
+                              color: mainColor,
                               fontWeight: FontWeight.bold,
-                              fontSize: stdFontSize
+                              fontSize: stdFontSize,
+                              fontFamily: defaultFont
                             ),
                           ),
                         ),
                         new Padding(
-                          padding: EdgeInsets.all(stdPadding),
-                          child: Text(
+                          padding: EdgeInsets.all(cardPadding),
+                          child: new Flexible(child: Text(
                             '${postDB[key][1]}',
                             textAlign: TextAlign.left,
+                            softWrap: true,
                             style: TextStyle(
-                              color: accentColor,
-                              fontSize: stdFontSize
+                              color: mainColor,
+                              fontSize: stdFontSize,
+                              fontFamily: defaultFont
                             ),
-                          ),
+                          )),
                         )
                       ]
                     )
@@ -93,14 +98,15 @@ class PostOverviewState extends State<PostOverview> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     new Container(
-                      margin: EdgeInsets.all(stdPadding),
+                      margin: EdgeInsets.all(cardPadding),
                       child: new RaisedButton(
-                        color: accentColor,
+                        color: mainColor,
                         child: Text(
                           AppLocalizations.of(context).readLabel,
                           style: TextStyle(
-                            color: mainColor,
+                            color: accentColor,
                             fontSize: stdFontSize,
+                            fontFamily: defaultFont
                           )
                         ),
                         padding: EdgeInsets.all(stdPadding),
@@ -117,7 +123,9 @@ class PostOverviewState extends State<PostOverview> {
                 )
               ]
             )
-          );
+          ));
+
+
         },
       ),
     );

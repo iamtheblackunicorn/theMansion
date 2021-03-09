@@ -15,3 +15,5 @@ double stdFontSize = 20;
 double stdRounding = 25;
 double headingSpacing = 50;
 double stdSpacing = 20;
+double cardPadding = 10;
+double stdWidth = 200;
