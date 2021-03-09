@@ -2,7 +2,7 @@
     package="com.blackunicorn.themansion">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="themansion"
+        android:label="The Mansion"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
