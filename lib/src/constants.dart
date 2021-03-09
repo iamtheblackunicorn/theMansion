@@ -19,3 +19,11 @@ double cardPadding = 10;
 double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
+Map<String, dynamic> defaultMap = {
+  'No Internet': [
+    'API Fail.',
+    'Could not fetch the API.',
+    'There was an error fetching the API!',
+    'https://blckunicorn.art/assets/images/logo/logo.svg'
+  ]
+};

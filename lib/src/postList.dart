@@ -20,6 +20,9 @@ class PostOverviewState extends State<PostOverview> {
     widget.apistorage.readCounter().then((dynamic value) {
       setState(() {
         postDB = json.decode(value);
+        if (postDB == null){
+          postDB = defaultMap;
+        } else {}
       });
     });
   }
@@ -50,6 +53,7 @@ class PostOverviewState extends State<PostOverview> {
         itemCount: postDB.length,
         itemBuilder: (context, index) {
           String key = postDB.keys.elementAt(index);
+          String description = postDB[key][1];
           return new SizedBox(width: stdWidth, child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(stdRounding)
@@ -79,8 +83,8 @@ class PostOverviewState extends State<PostOverview> {
                         ),
                         new Padding(
                           padding: EdgeInsets.all(cardPadding),
-                          child: new Flexible(child: Text(
-                            '${postDB[key][1]}',
+                          child: Text(
+                            '$description',
                             textAlign: TextAlign.left,
                             //softWrap: true,
                             style: TextStyle(
@@ -88,7 +92,7 @@ class PostOverviewState extends State<PostOverview> {
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
                             ),
-                          )),
+                          ),
                         )
                       ]
                     )

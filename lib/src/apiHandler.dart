@@ -40,9 +40,36 @@ class APIStorage {
     try {
       final file = await _localFile;
       String contents = file.readAsStringSync();
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
+      print('$contents');
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
       var resultmap = json.decode(contents);
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
+      print('$resultmap');
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
       return resultmap;
     } catch (e) {
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
+      print(resultMap);
+      print('\n');
+      print('\n');
+      print('\n');
+      print('\n');
       return resultMap;
     }
   }
