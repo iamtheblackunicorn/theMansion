@@ -4,5 +4,6 @@
   "readLabel": "Post lesen",
   "byLabel": "von",
   "visitWebsite": "Vollen Post lesen",
-  "headBackLabel": "Verstanden!"
+  "headBackLabel": "Verstanden!",
+  "postedOnLabel": "Erschienen am"
 }

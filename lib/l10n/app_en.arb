@@ -4,5 +4,6 @@
   "readLabel": "Read",
   "byLabel": "by",
   "visitWebsite": "View complete post",
-  "headBackLabel": "Got it!"
+  "headBackLabel": "Got it!",
+  "postedOnLabel": "Posted on"
 }

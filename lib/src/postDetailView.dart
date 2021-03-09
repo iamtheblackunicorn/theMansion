@@ -31,8 +31,9 @@ class PostDetailViewState extends State<PostDetailView> {
   }
   @override
   Widget build(BuildContext context) {
-    String date = postDB[key][0].split(' ')[0];
+    String date = postDB[key][0].split(' ')[0].split('-').join('/');
     String postUrl = postDB[key][3];
+    String postedOn = AppLocalizations.of(context).postedOnLabel;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -76,8 +77,8 @@ class PostDetailViewState extends State<PostDetailView> {
                           style: TextStyle(
                             color: accentColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            fontFamily: headingFont
+                            fontSize: postHeadingFontSize,
+                            fontFamily: defaultFont
                           ),
                         )
                       )
@@ -90,26 +91,40 @@ class PostDetailViewState extends State<PostDetailView> {
                 child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+
+                    SizedBox(height:stdSpacing),
                     new Text(
-                      '$date',
+                      '$postedOn $date',
                       style: TextStyle(
                         color: accentColor,
                         fontSize: stdFontSize,
                         fontFamily: defaultFont
                       )
                     ),
+                    SizedBox(height:stdSpacing),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(stdRounding)
+                      ),
+                      color: accentColor,
+                      child: Padding(padding: EdgeInsets.all(stdPadding), child:
                     new Text(
                       '${postDB[key][2]}',
                       style: TextStyle(
-                        color: accentColor,
+                        color: mainColor,
                         fontSize: stdFontSize,
                         fontFamily: defaultFont
                       )
-                    )
+                    )))
                   ]
+
                 )
               ),
+              SizedBox(height:stdSpacing),
               new RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(extraRounding)
+                ),
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
@@ -131,6 +146,7 @@ class PostDetailViewState extends State<PostDetailView> {
                   }
                 }
               ),
+              SizedBox(height:stdSpacing),
             ]
           )
         ))

@@ -17,3 +17,5 @@ double headingSpacing = 50;
 double stdSpacing = 20;
 double cardPadding = 10;
 double stdWidth = 200;
+double postHeadingFontSize = 25;
+double extraRounding = 25;

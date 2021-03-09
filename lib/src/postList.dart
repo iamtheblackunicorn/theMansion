@@ -82,7 +82,7 @@ class PostOverviewState extends State<PostOverview> {
                           child: new Flexible(child: Text(
                             '${postDB[key][1]}',
                             textAlign: TextAlign.left,
-                            softWrap: true,
+                            //softWrap: true,
                             style: TextStyle(
                               color: mainColor,
                               fontSize: stdFontSize,
