@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+String apiUrl = 'https://blckunicorn.art/content/api/';
 String appTitle = 'The Mansion';
 String headingFont = 'Ostrich';
 String defaultFont = 'Lobster';

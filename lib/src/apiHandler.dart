@@ -28,7 +28,7 @@ class APIStorage {
       print(e);
     }
   }
-  Future<String> readCounter() async {
+  Future<dynamic> readCounter() async {
     try {
       final file = await _localFile;
       String contents = file.readAsStringSync();
@@ -38,14 +38,14 @@ class APIStorage {
       print(resultmap.toString());
       print('\n');
       print('\n');
-      return resultmap['sloganOne'];
+      return resultmap;
     } catch (e) {
       print('\n');
       print('\n');
       print(e);
       print('\n');
       print('\n');
-      return null;
+      return {'noConnection':'no internet'};
     }
   }
 }

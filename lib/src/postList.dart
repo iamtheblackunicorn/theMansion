@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-class FlutterDemo extends StatefulWidget {
+class PostOverview extends StatefulWidget {
   final APIStorage apistorage;
-  FlutterDemo({Key key, @required this.apistorage}) : super(key: key);
+  PostOverview({Key key, @required this.apistorage}) : super(key: key);
   @override
-  _FlutterDemoState createState() => _FlutterDemoState();
+  PostOverviewState createState() => PostOverviewState();
 }
-class _FlutterDemoState extends State<FlutterDemo> {
-  String randomString;
+class PostOverviewState extends State<PostOverview> {
+  Map<String,dynamic> postDB;
   @override
   void initState() {
     super.initState();
     widget.apistorage.readCounter().then((dynamic value) {
       setState(() {
-        randomString = value;
+        postDB = value;
       });
     });
   }
@@ -35,21 +35,22 @@ class _FlutterDemoState extends State<FlutterDemo> {
               AppLocalizations.of(context).imperativeComputerLabel,
               style: TextStyle(
                 color: accentColor,
-                fontSize: headingFontSize,
+                fontSize: stdFontSize,
                 fontFamily: defaultFont
               ),
             ),
           ]
         ),
-        backgroundColor: bgColor
+        backgroundColor: mainColor
       ),
-      backgroundColor: defaultBackGroundColor,
+      backgroundColor: mainColor,
       body: new ListView.builder(
-        itemCount: items.length,
+        itemCount: postDB.length,
         itemBuilder: (context, index) {
+          String key = postDB.keys.elementAt(index);
           return new Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0)
+              borderRadius: BorderRadius.circular(stdRounding)
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -61,24 +62,24 @@ class _FlutterDemoState extends State<FlutterDemo> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Padding(
-                          padding: EdgeInsets.all(cardPadding),
+                          padding: EdgeInsets.all(stdPadding),
                           child: Text(
-                            'Ajax',
+                            '$key',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: tertiaryAccentColor,
+                              color: accentColor,
                               fontWeight: FontWeight.bold,
-                              fontSize: listFontheadingSize
+                              fontSize: stdFontSize
                             ),
                           ),
                         ),
                         new Padding(
                           padding: EdgeInsets.all(cardPadding),
                           child: Text(
-                            'Niederlande',
+                            '${postDB[key][1]}',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: tertiaryAccentColor,
+                              color: accentColor,
                               fontSize: defaultFontSize
                             ),
                           ),
@@ -91,26 +92,26 @@ class _FlutterDemoState extends State<FlutterDemo> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     new Container(
-                      margin: EdgeInsets.all(choiceButtonMargin),
+                      margin: EdgeInsets.all(stdPadding),
                       child: new RaisedButton(
                         color: accentColor,
                         child: Text(
-                          AppLocalizations.of(context).detailViewMessage,
+                          'VIEW',
                           style: TextStyle(
-                            color: defaultBackGroundColor,
-                            fontSize: defaultFontSize,
+                            color: mainColor,
+                            fontSize: stdFontSize,
                           )
                         ),
-                        padding: EdgeInsets.all(choiceButtonPadding),
+                        padding: EdgeInsets.all(stdPadding),
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ClubDetailView()),
+                            MaterialPageRoute(builder: (context) => ClubDetailView(apistorage: APIStorage(), postDBKey: key)),
                           );
                         }
                       )
                     ),
-                    SizedBox(height: choiceButtonMargin)
+                    SizedBox(height: stdPadding)
                   ]
                 )
               ]
