@@ -6,6 +6,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String infoLabel = AppLocalizations.of(context).infoScreenLabel;
+    String postsLabel = AppLocalizations.of(context).postOverViewScreen;
     return Scaffold(
       backgroundColor: mainColor,
       body: Center(
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
-                  appTitle,
+                  '$postsLabel',
                   fontSize: stdFontSize,
                   fontFamily: defaultFont
                 ),
@@ -39,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                 color: accentColor,
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(
-                  appTitle,
+                  '$infoLabel',
                   fontSize: stdFontSize,
                   fontFamily: defaultFont
                 ),

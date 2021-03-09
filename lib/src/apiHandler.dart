@@ -45,7 +45,12 @@ class APIStorage {
       print(e);
       print('\n');
       print('\n');
-      return {'noConnection':'no internet'};
+      return {'noConnection':[
+        'No Internet!',
+        'No Internet!',
+        'No Internet!',
+        'No Internet!'
+      ]};
     }
   }
 }

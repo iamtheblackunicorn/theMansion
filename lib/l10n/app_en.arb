@@ -1,4 +1,7 @@
 {
-  "infoScreenLabel": "INFO",
-  "postOverViewScreen": "POSTS"
+  "infoScreenLabel": "Info",
+  "postOverViewScreen": "Posts",
+  "readLabel": "Read",
+  "byLabel": "by",
+  "visitWebsite": "View complete post"
 }

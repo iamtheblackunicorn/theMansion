@@ -32,7 +32,7 @@ class PostOverviewState extends State<PostOverview> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Text(
-              AppLocalizations.of(context).imperativeComputerLabel,
+              AppLocalizations.of(context).postOverViewScreen,
               style: TextStyle(
                 color: accentColor,
                 fontSize: stdFontSize,
@@ -96,7 +96,7 @@ class PostOverviewState extends State<PostOverview> {
                       child: new RaisedButton(
                         color: accentColor,
                         child: Text(
-                          'VIEW',
+                          AppLocalizations.of(context).readLabel,
                           style: TextStyle(
                             color: mainColor,
                             fontSize: stdFontSize,

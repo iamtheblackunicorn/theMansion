@@ -100,6 +100,18 @@ class PostDetailViewState extends State<PostDetailView> {
                   ]
                 )
               ),
+              new RaisedButton(
+                color: accentColor,
+                padding: EdgeInsets.all(stdPadding),
+                child: new Text(
+                  AppLocalizations.of(context).visitWebsite,
+                  fontSize: stdFontSize,
+                  fontFamily: defaultFont
+                ),
+                onPressed: () {
+                  // do something
+                }
+              ),
             ]
           )
         )
