@@ -12,7 +12,7 @@
 
 ## Download :inbox_tray:
 
-- Initial Release *Black Unicorn* v.1.0.0 (17.6MB): [Download]()
+- *Black Unicorn* (v.1.0.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.0.0-BlackUnicorn-Release.apk) (18.2 MB)
 
 ## Building :hammer:
 
