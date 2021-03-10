@@ -10,6 +10,10 @@
 
 *The Mansion* is the official app for Android for my blog! A while back, I could not complete a coding challenge because I didn't know how to download a `JSON` API and parse and display the data that it held. *The Mansion* is the proof that I now know how to do this and that I can build an API myself using Jekyll. *The Mansion* is focussed on simplicity and elegance, two values that I hold in high regard. Feedback and contributions are more than welcome.
 
+## Download :inbox_tray:
+
+- Initial Release *Black Unicorn* v.1.0.0 (17.6MB): [Download]()
+
 ## Building :hammer:
 
 Make sure that you have the following programs installed:
