@@ -19,6 +19,7 @@ double cardPadding = 10;
 double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
+double headerImageDimensions = 200;
 Map<String, dynamic> defaultMap = {
   'No Internet': [
     'API Fail.',

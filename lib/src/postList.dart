@@ -54,6 +54,7 @@ class PostOverviewState extends State<PostOverview> {
         itemBuilder: (context, index) {
           String key = postDB.keys.elementAt(index);
           String description = postDB[key][1];
+          String pictureUrl = postDB[key][4];
           return new SizedBox(width: stdWidth, child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(stdRounding)
