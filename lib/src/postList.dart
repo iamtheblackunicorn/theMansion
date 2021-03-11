@@ -3,6 +3,7 @@ import 'constants.dart';
 import 'apiHandler.dart';
 import 'postDetailView.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -13,23 +14,36 @@ class PostOverview extends StatefulWidget {
   PostOverviewState createState() => PostOverviewState();
 }
 class PostOverviewState extends State<PostOverview> {
-  Map<String,dynamic> postDB;
+  Future<Map<String,dynamic>> postDB;
   @override
   void initState() {
     super.initState();
-    widget.apistorage.readCounter().then((dynamic value) {
-      setState(() {
-        postDB = json.decode(value);
-        if (postDB == null){
-          postDB = defaultMap;
-        } else {}
+    postDB = widget.apistorage.readCounter();
+    /*widget.apistorage.readCounter().then((dynamic value) {
+      setState((){
+          postDB = json.decode(value);
       });
-    });
+    });*/
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return FutureBuilder<Map<String,dynamic>>(
+      future: postDB,
+      builder: (BuildContext context, AsyncSnapshot<Map<String,dynamic>> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting){
+          return  Center(child: Text('Please wait its loading...'));
+        } else {
+          if (snapshot.hasError)
+            return Center(child: Text('Error: ${snapshot.error}'));
+          else
+            return Center(child: new Text('${snapshot.data.runtimeType}'));  // snapshot.data  :- get your object which is pass from your downloadData() function
+        }
+      }
+    );
+  }
+}
+
+      /*appBar: AppBar(
         iconTheme: IconThemeData(
           color: accentColor,
         ),
@@ -135,4 +149,4 @@ class PostOverviewState extends State<PostOverview> {
       ),
     );
   }
-}
+}*/

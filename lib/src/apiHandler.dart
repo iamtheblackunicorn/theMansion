@@ -30,47 +30,11 @@ class APIStorage {
       return File('$path/api.json');
     }
   }
-  Future<dynamic> readCounter() async {
-    Map<String,dynamic> resultMap = {'noConnection':[
-      'No Internet!',
-      'No Internet!',
-      'No Internet!',
-      'No Internet!'
-    ]};
-    try {
-      final file = await _localFile;
-      String contents = file.readAsStringSync();
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('$contents');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      var resultmap = json.decode(contents);
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('$resultmap');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      return resultmap;
-    } catch (e) {
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print(resultMap);
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      return resultMap;
-    }
+  Future<Map<String,dynamic>> readCounter() async {
+    final file = await _localFile;
+    String contents = file.readAsStringSync();
+    print(contents);
+    Future<Map<String,dynamic>> resultmap = json.decode(contents);
+    return resultmap;
   }
 }

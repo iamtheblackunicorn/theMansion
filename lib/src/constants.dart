@@ -20,11 +20,3 @@ double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
 double headerImageDimensions = 200;
-Map<String, dynamic> defaultMap = {
-  'No Internet': [
-    'API Fail.',
-    'Could not fetch the API.',
-    'There was an error fetching the API!',
-    'https://blckunicorn.art/assets/images/logo/logo.svg'
-  ]
-};
