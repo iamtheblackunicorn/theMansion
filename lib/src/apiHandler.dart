@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert'as dc;
 import 'constants.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
@@ -23,7 +23,7 @@ class APIStorage {
         ),
       );
       String fullPath = '$path/api.json';
-      File(fullPath).writeAsStringSync(json.encode(response.data).toString());
+      File(fullPath).writeAsStringSync(dc.json.encode(response.data).toString());
       return File('$path/api.json');
     } catch (e) {
       final path = await _localPath;
@@ -32,9 +32,9 @@ class APIStorage {
   }
   Future<Map<String,dynamic>> readCounter() async {
     final file = await _localFile;
-    String contents = file.readAsStringSync();
-    print(contents);
-    Future<Map<String,dynamic>> resultmap = json.decode(contents);
-    return resultmap;
+    String contents = await file.readAsString();
+    print(dc.json.decode(contents)['Rebecca']);
+    Map<String, dynamic> myData = dc.json.decode(contents);
+    return myData;
   }
 }

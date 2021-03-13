@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'constants.dart';
+import 'futureHandler.dart';
 import 'apiHandler.dart';
 import 'postDetailView.dart';
 import 'package:flutter/material.dart';
@@ -14,29 +15,27 @@ class PostOverview extends StatefulWidget {
   PostOverviewState createState() => PostOverviewState();
 }
 class PostOverviewState extends State<PostOverview> {
-  Future<Map<String,dynamic>> postDB;
+  Future<dynamic> postDB;
   @override
   void initState() {
     super.initState();
+    //print(retFutureMap(widget.apistorage.readCounter()).runtimeType);
+    //postDB = retFutureMap(widget.apistorage.readCounter());
     postDB = widget.apistorage.readCounter();
-    /*widget.apistorage.readCounter().then((dynamic value) {
-      setState((){
-          postDB = json.decode(value);
-      });
-    });*/
+    print(widget.apistorage.readCounter().runtimeType);
   }
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Map<String,dynamic>>(
+    return FutureBuilder<dynamic>(
       future: postDB,
-      builder: (BuildContext context, AsyncSnapshot<Map<String,dynamic>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting){
           return  Center(child: Text('Please wait its loading...'));
         } else {
           if (snapshot.hasError)
             return Center(child: Text('Error: ${snapshot.error}'));
           else
-            return Center(child: new Text('${snapshot.data.runtimeType}'));  // snapshot.data  :- get your object which is pass from your downloadData() function
+            return Center(child: new Text('${snapshot.data.runtimeType}'));
         }
       }
     );
