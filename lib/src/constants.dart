@@ -20,3 +20,5 @@ double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
 double headerImageDimensions = 200;
+double miscScreenSpacing = 250;
+double miscScreenIconSize = 150;

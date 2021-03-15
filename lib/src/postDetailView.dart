@@ -56,10 +56,10 @@ class PostDetailViewState extends State<PostDetailView> {
               child: Column(
                 children: <Widget> [
                   new SizedBox(
-                    height: 250
+                    height: miscScreenSpacing
                   ),
                   new LoadingBouncingGrid.circle(
-                    size: 150,
+                    size: miscScreenIconSize,
                     backgroundColor: accentColor,
                   )
                 ]
@@ -94,12 +94,12 @@ class PostDetailViewState extends State<PostDetailView> {
                 child: Column(
                   children: <Widget> [
                     new SizedBox(
-                      height: 250
+                      height: miscScreenSpacing
                     ),
                     new Icon(
                       Icons.warning,
                       color: accentColor,
-                      size: 150,
+                      size: miscScreenIconSize,
                     ),
                     new Text(
                       '$errorString',
