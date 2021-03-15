@@ -158,6 +158,9 @@ class PostOverviewState extends State<PostOverview> {
                         size: stdIconSize,
                       ),
                       onPressed: () {
+                        setState((){
+                          // Sort the map here!
+                        });
                       },
                     ),
                   )
