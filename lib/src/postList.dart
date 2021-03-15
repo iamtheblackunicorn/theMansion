@@ -15,20 +15,18 @@ class PostOverview extends StatefulWidget {
   PostOverviewState createState() => PostOverviewState();
 }
 class PostOverviewState extends State<PostOverview> {
-  Future<dynamic> postDB;
+  Future<Map<String,dynamic>> postDB;
   @override
   void initState() {
     super.initState();
-    //print(retFutureMap(widget.apistorage.readCounter()).runtimeType);
-    //postDB = retFutureMap(widget.apistorage.readCounter());
     postDB = widget.apistorage.readCounter();
-    print(widget.apistorage.readCounter().runtimeType);
   }
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<dynamic>(
+    String errorString = AppLocalizations.of(context).errorLabel;
+    return FutureBuilder<Map<String,dynamic>>(
       future: postDB,
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<Map<String,dynamic>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting){
           return  Scaffold(
             appBar:AppBar(
@@ -65,8 +63,9 @@ class PostOverviewState extends State<PostOverview> {
               )
             )
           );
-        } else {
-          if (snapshot.hasError)
+        }
+        else {
+          if (snapshot.hasError) {
             return  Scaffold(
               appBar:AppBar(
                 iconTheme: IconThemeData(
@@ -100,7 +99,7 @@ class PostOverviewState extends State<PostOverview> {
                       size: 150,
                     ),
                     new Text(
-                      '${snapshot.error}',
+                      '$errorString',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: accentColor,
@@ -113,126 +112,116 @@ class PostOverviewState extends State<PostOverview> {
                 )
               )
             );
-          else
-            return Center(child: new Text('${snapshot.data.runtimeType}'));
+          }
+          else {
+            Map<String, dynamic> newData = snapshot.data;
+
+            return new Scaffold(
+              appBar: AppBar(
+                iconTheme: IconThemeData(
+                  color: accentColor,
+                ),
+                title: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Text(
+                    AppLocalizations.of(context).postOverViewScreen,
+                    style: TextStyle(
+                      color: accentColor,
+                      fontSize: stdFontSize,
+                      fontFamily: defaultFont
+                    ),
+                  ),
+                ]
+                ),
+                backgroundColor: mainColor),
+                backgroundColor: mainColor,
+                body:new ListView.builder(
+                  itemCount: newData.length,
+                  itemBuilder: (context, index) {
+                  String key = newData.keys.elementAt(index);
+                  String description = newData[key][1];
+                  return new SizedBox(
+                    width: stdWidth,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(stdRounding)
+                      ),
+                    color: accentColor,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            new Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                new Padding(
+                                  padding: EdgeInsets.all(cardPadding),
+                                  child: Text(
+                                    '$key',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: mainColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: stdFontSize,
+                                      fontFamily: defaultFont
+                                    ),
+                                  ),
+                                ),
+                                new Padding(
+                                  padding: EdgeInsets.all(cardPadding),
+                                  child: Text(
+                                    '$description',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: mainColor,
+                                      fontSize: stdFontSize,
+                                      fontFamily: defaultFont
+                                    ),
+                                  ),
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            new Container(
+                              margin: EdgeInsets.all(cardPadding),
+                              child: new RaisedButton(
+                                color: mainColor,
+                                child: Text(
+                                  AppLocalizations.of(context).readLabel,
+                                  style: TextStyle(
+                                    color: accentColor,
+                                    fontSize: stdFontSize,
+                                    fontFamily: defaultFont
+                                  )
+                                ),
+                                padding: EdgeInsets.all(stdPadding),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => PostDetailView(apistorage: APIStorage(), postKey: key)),
+                                  );
+                                }
+                              )
+                            ),
+                            SizedBox(height: stdPadding)
+                          ]
+                        )
+                      ]
+                    )
+                  )
+                );
+              }
+            ));
+          }
         }
       }
     );
   }
 }
-
-
-/*
-Tab(
-                      child: LoadingBouncingGrid.circle(
-                        size: 30,
-                        backgroundColor: Colors.white,
-                      ),
-                    ),*/
-      /*appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: accentColor,
-        ),
-        title: new Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            new Text(
-              AppLocalizations.of(context).postOverViewScreen,
-              style: TextStyle(
-                color: accentColor,
-                fontSize: stdFontSize,
-                fontFamily: defaultFont
-              ),
-            ),
-          ]
-        ),
-        backgroundColor: mainColor
-      ),
-      backgroundColor: mainColor,
-      body:new ListView.builder(
-        itemCount: postDB.length,
-        itemBuilder: (context, index) {
-          String key = postDB.keys.elementAt(index);
-          String description = postDB[key][1];
-          String pictureUrl = postDB[key][4];
-          return new SizedBox(width: stdWidth, child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(stdRounding)
-            ),
-            color: accentColor,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Padding(
-                          padding: EdgeInsets.all(cardPadding),
-                          child: Text(
-                            '$key',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: mainColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: stdFontSize,
-                              fontFamily: defaultFont
-                            ),
-                          ),
-                        ),
-                        new Padding(
-                          padding: EdgeInsets.all(cardPadding),
-                          child: Text(
-                            '$description',
-                            textAlign: TextAlign.left,
-                            //softWrap: true,
-                            style: TextStyle(
-                              color: mainColor,
-                              fontSize: stdFontSize,
-                              fontFamily: defaultFont
-                            ),
-                          ),
-                        )
-                      ]
-                    )
-                  ]
-                ),
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    new Container(
-                      margin: EdgeInsets.all(cardPadding),
-                      child: new RaisedButton(
-                        color: mainColor,
-                        child: Text(
-                          AppLocalizations.of(context).readLabel,
-                          style: TextStyle(
-                            color: accentColor,
-                            fontSize: stdFontSize,
-                            fontFamily: defaultFont
-                          )
-                        ),
-                        padding: EdgeInsets.all(stdPadding),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => PostDetailView(apistorage: APIStorage(), postDBKey: key)),
-                          );
-                        }
-                      )
-                    ),
-                    SizedBox(height: stdPadding)
-                  ]
-                )
-              ]
-            )
-          ));
-
-
-        },
-      ),
-    );
-  }
-}*/
