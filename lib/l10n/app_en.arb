@@ -6,5 +6,6 @@
   "visitWebsite": "View complete post",
   "headBackLabel": "Got it!",
   "postedOnLabel": "Posted on",
-  "errorLabel": "An error occurred!\nPlease try later!"
+  "errorLabel": "An error occurred!\nPlease try later!",
+  "quitLabel": "Quit"
 }

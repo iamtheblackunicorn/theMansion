@@ -138,6 +138,23 @@ class PostDetailViewState extends State<PostDetailView> {
                       ),
                     ),
                   ]),
+                  actions: <Widget>[
+                    new Padding(
+                      padding: EdgeInsets.only(right: stdPadding),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.sync_sharp,
+                          color: accentColor,
+                          size: stdIconSize,
+                        ),
+                        onPressed: () {
+                          setState((){
+                            postDB = widget.apistorage.readCounter();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
                   backgroundColor: mainColor
                 ),
                 backgroundColor: mainColor,

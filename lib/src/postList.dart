@@ -132,11 +132,40 @@ class PostOverviewState extends State<PostOverview> {
                       fontFamily: defaultFont
                     ),
                   ),
-                ]
-                ),
-                backgroundColor: mainColor),
+                ]),
+                actions: <Widget>[
+                  new Padding(
+                    padding: EdgeInsets.only(right: stdPadding),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.sync_sharp,
+                        color: accentColor,
+                        size: stdIconSize,
+                      ),
+                      onPressed: () {
+                        setState((){
+                          postDB = widget.apistorage.readCounter();
+                        });
+                      },
+                    ),
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.only(right: stdPadding),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.sort_rounded,
+                        color: accentColor,
+                        size: stdIconSize,
+                      ),
+                      onPressed: () {
+                      },
+                    ),
+                  )
+                ],
+                backgroundColor: mainColor
+              ),
                 backgroundColor: mainColor,
-                body:new ListView.builder(
+              body:new ListView.builder(
                   itemCount: newData.length,
                   itemBuilder: (context, index) {
                   String key = newData.keys.elementAt(index);

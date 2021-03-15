@@ -6,5 +6,6 @@
   "visitWebsite": "Vollen Post lesen",
   "headBackLabel": "Verstanden!",
   "postedOnLabel": "Erschienen am",
-  "errorLabel": "Fehler! Versuche es\nspaeter erneut!"
+  "errorLabel": "Fehler! Versuche es\nspaeter erneut!",
+  "quitLabel": "Beenden"
 }
