@@ -22,6 +22,7 @@ class APIStorage {
           validateStatus: (status) { return status < 500; }
         ),
       );
+      print(response.data.runtimeType);
       String fullPath = '$path/api.json';
       File(fullPath).writeAsStringSync(dc.json.encode(response.data).toString());
       return File('$path/api.json');
@@ -33,8 +34,8 @@ class APIStorage {
   Future<Map<String,dynamic>> readCounter() async {
     final file = await _localFile;
     String contents = await file.readAsString();
-    print(dc.json.decode(contents)['Rebecca']);
-    Map<String, dynamic> myData = dc.json.decode(contents);
+    //print(dc.json.decode(contents)['Rebecca']);
+    Map<String, dynamic> myData = Map<String, dynamic>.from(dc.json.decode(contents));
     return myData;
   }
 }
