@@ -1,17 +1,16 @@
 import 'dart:io';
 import 'dart:math';
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert'as dc;
 import 'constants.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
-
 class APIStorage {
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
     return directory.path;
   }
-  Future<File> get _localFile async {
+  Future<Map<String, dynamic>> get _localFile async {
     try {
       final path = await _localPath;
       Response response = await dio.get(
@@ -22,55 +21,21 @@ class APIStorage {
           validateStatus: (status) { return status < 500; }
         ),
       );
-      String fullPath = '$path/api.json';
-      File(fullPath).writeAsStringSync(json.encode(response.data).toString());
-      return File('$path/api.json');
+      return dc.json.decode(response.data);
     } catch (e) {
-      final path = await _localPath;
-      return File('$path/api.json');
+      Response response = await dio.get(
+        apiUrl,
+        options: Options(
+          responseType: ResponseType.json,
+          followRedirects: true,
+          validateStatus: (status) { return status < 500; }
+        ),
+      );
+      return dc.json.decode(response.data);
     }
   }
-  Future<dynamic> readCounter() async {
-    Map<String,dynamic> resultMap = {'noConnection':[
-      'No Internet!',
-      'No Internet!',
-      'No Internet!',
-      'No Internet!'
-    ]};
-    try {
-      final file = await _localFile;
-      String contents = file.readAsStringSync();
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('$contents');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      var resultmap = json.decode(contents);
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('$resultmap');
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      return resultmap;
-    } catch (e) {
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      print(resultMap);
-      print('\n');
-      print('\n');
-      print('\n');
-      print('\n');
-      return resultMap;
-    }
+  Future<Map<String,dynamic>> readCounter() async {
+    Future<Map<String, dynamic>> data = _localFile;
+    return data;
   }
 }

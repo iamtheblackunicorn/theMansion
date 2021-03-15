@@ -58,11 +58,17 @@ const Locale('languagecode', ''),
 
 ## Changelog :black_nib:
 
-### Initial Release:
+### Version 1.0.0: Initial Release:
 
 - upload to GitHub
 - polishing of the logic
 - minor fixes
+
+### Version 1.1.0: Speed Update:
+
+- API is now directly pulled from the interwebs
+- smooth animations and loading times
+- better error handling
 
 ## Note :scroll:
 
