@@ -4,7 +4,7 @@ import 'futureHandler.dart';
 import 'apiHandler.dart';
 import 'postDetailView.dart';
 import 'package:flutter/material.dart';
-
+import 'package:loading_animations/loading_animations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -30,10 +30,89 @@ class PostOverviewState extends State<PostOverview> {
       future: postDB,
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting){
-          return  Center(child: Text('Please wait its loading...'));
+          return  Scaffold(
+            appBar:AppBar(
+              iconTheme: IconThemeData(
+                color: accentColor,
+              ),
+              title: new Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Text(
+                    AppLocalizations.of(context).postOverViewScreen,
+                    style: TextStyle(
+                      color: accentColor,
+                      fontSize: stdFontSize,
+                      fontFamily: defaultFont
+                    ),
+                  ),
+                ]
+              ),
+              backgroundColor: mainColor
+            ),
+            backgroundColor: mainColor,
+            body: Center(
+              child: Column(
+                children: <Widget> [
+                  new SizedBox(
+                    height: 250
+                  ),
+                  new LoadingBouncingGrid.circle(
+                    size: 150,
+                    backgroundColor: accentColor,
+                  )
+                ]
+              )
+            )
+          );
         } else {
           if (snapshot.hasError)
-            return Center(child: Text('Error: ${snapshot.error}'));
+            return  Scaffold(
+              appBar:AppBar(
+                iconTheme: IconThemeData(
+                  color: accentColor,
+                ),
+                title: new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    new Text(
+                      AppLocalizations.of(context).postOverViewScreen,
+                      style: TextStyle(
+                        color: accentColor,
+                        fontSize: stdFontSize,
+                        fontFamily: defaultFont
+                      ),
+                    ),
+                  ]
+                ),
+                backgroundColor: mainColor
+              ),
+              backgroundColor: mainColor,
+              body: Center(
+                child: Column(
+                  children: <Widget> [
+                    new SizedBox(
+                      height: 250
+                    ),
+                    new Icon(
+                      Icons.warning,
+                      color: accentColor,
+                      size: 150,
+                    ),
+                    new Text(
+                      '${snapshot.error}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: accentColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: stdFontSize,
+                        fontFamily: defaultFont
+                      ),
+                    )
+                  ]
+                )
+              )
+            );
           else
             return Center(child: new Text('${snapshot.data.runtimeType}'));
         }
@@ -42,6 +121,14 @@ class PostOverviewState extends State<PostOverview> {
   }
 }
 
+
+/*
+Tab(
+                      child: LoadingBouncingGrid.circle(
+                        size: 30,
+                        backgroundColor: Colors.white,
+                      ),
+                    ),*/
       /*appBar: AppBar(
         iconTheme: IconThemeData(
           color: accentColor,
