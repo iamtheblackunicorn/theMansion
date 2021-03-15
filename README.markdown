@@ -12,7 +12,8 @@
 
 ## Download :inbox_tray:
 
-- *Black Unicorn* (v.1.0.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.0.0-BlackUnicorn-Release.apk) (18.2 MB)
+- *The Black Unicorn* (v.1.0.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.0.0-BlackUnicorn-Release.apk) (18.2 MB)
+- - *The Speed Update* (v.1.0.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.1.0-SpeedUpdate-Release.apk) (17.5 MB)
 
 ## Building :hammer:
 
