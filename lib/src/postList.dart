@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'sorting.dart';
 import 'constants.dart';
 import 'futureHandler.dart';
 import 'apiHandler.dart';
@@ -159,7 +160,7 @@ class PostOverviewState extends State<PostOverview> {
                       ),
                       onPressed: () {
                         setState((){
-                          // Sort the map here!
+                          postDB = sortMapByKeys(postDB);
                         });
                       },
                     ),

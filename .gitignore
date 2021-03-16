@@ -45,3 +45,14 @@ Flutter-Debug.xcconfig
 Flutter-Release.xcconfig
 settings_aar.gradle
 .metadata
+ephemeral
+gradle-wrapper.jar
+.gradle
+captures/
+gradlew
+gradlew.bat
+local.properties
+GeneratedPluginRegistrant.java
+Flutter/ephemeral/
+Pods/
+xcuserdata/
