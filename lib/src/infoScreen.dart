@@ -58,7 +58,7 @@ class InfoScreen extends StatelessWidget {
                     new Padding(
                       padding: EdgeInsets.all(stdRounding),
                       child: new Text(
-                        'The Mansion $byLabel Alexander Abraham\na.k.a. The Black Unicorn',
+                        'The Mansion $byLabel Alexander Abraham\na.k.a. The Black Unicorn.',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: defaultFont,

@@ -17,10 +17,29 @@ class PostOverview extends StatefulWidget {
 }
 class PostOverviewState extends State<PostOverview> {
   Future<Map<String,dynamic>> postDB;
+  bool sorted;
   @override
   void initState() {
     super.initState();
     postDB = widget.apistorage.readCounter();
+    setState((){
+      bool sorted = false;
+    });
+  }
+  @override
+  void changeSortedStatus(bool value){
+    bool result = false;
+    if (value == false || value == null){
+      setState((){
+        sorted = true;
+        postDB = sortMapByKeys(postDB);
+      });
+    } else if (value == true){
+      setState((){
+        sorted = false;
+        postDB = widget.apistorage.readCounter();
+      });
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -154,14 +173,14 @@ class PostOverviewState extends State<PostOverview> {
                     padding: EdgeInsets.only(right: stdPadding),
                     child: IconButton(
                       icon: Icon(
-                        Icons.sort_rounded,
+                        Icons.unfold_more_outlined,
                         color: accentColor,
                         size: stdIconSize,
                       ),
                       onPressed: () {
-                        setState((){
-                          postDB = sortMapByKeys(postDB);
-                        });
+                        //setState((){
+                          changeSortedStatus(sorted);
+                        //});
                       },
                     ),
                   )
