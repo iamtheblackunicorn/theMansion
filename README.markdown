@@ -73,5 +73,5 @@ const Locale('languagecode', ''),
 
 ## Note :scroll:
 
-- *The Mansion* :crossed_swords: by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
+- *The Mansion* :unicorn: by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
 - licensed under the MIT license.
