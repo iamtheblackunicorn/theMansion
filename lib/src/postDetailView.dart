@@ -34,7 +34,7 @@ class PostDetailViewState extends State<PostDetailView> {
         }
         else {
           if (snapshot.hasError) {
-            return ErrorScreen()
+            return ErrorScreen();
           }
           else {
             Map<String, dynamic> newData = snapshot.data;
