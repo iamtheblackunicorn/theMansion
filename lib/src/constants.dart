@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'constants.dart';
 
 Dio dio = new Dio();
 String apiUrl = 'https://blckunicorn.art/content/api/';
