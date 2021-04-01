@@ -16,6 +16,7 @@
 - *The Speed Update* (v.1.1.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.1.0/TheMansion-v1.1.0-SpeedUpdate-Release.apk) (17.5 MB)
 - *The Smoothness Update* (v.1.2.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.2.0/TheMansion-v1.2.0-SmoothnessUpdate-Release.apk) (17.5 MB)
 - *The March Update* (v.1.3.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.3.0/TheMansion-v1.3.0-MarchUpdate-Release.apk) (17.2 MB)
+- *The Clarity Update* (v.1.4.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.4.0/TheMansion-v1.4.0-ClarityUpdate-Release.apk) (17.2 MB)
 
 ## Building :hammer:
 
@@ -73,11 +74,23 @@ const Locale('languagecode', ''),
 - smooth animations and loading times
 - better error handling
 
-### Version 1.2.0: Smoothness Update:
+### Version 1.2.0: The Smoothness Update:
 
 - added sorting of posts
 - added content updates
 - minor fixes
+
+### Version 1.3.0: The March Update:
+
+- many new design improvements
+- minor fixes
+- performance improvements
+
+### Version 1.4.0: The Clarity Update
+
+- minor fixes
+- more performance improvements
+- updated logo
 
 ## Note :scroll:
 
