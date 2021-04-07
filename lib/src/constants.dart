@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
-String appVersion = '1.3.0';
+String appVersion = '1.4.0';
 Dio dio = new Dio();
 String apiUrl = 'https://blckunicorn.art/content/api/';
 String appTitle = 'The Mansion';
