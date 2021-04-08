@@ -34,7 +34,7 @@ class LoadingScreen extends StatelessWidget {
             new SizedBox(
               height: miscScreenSpacing
             ),
-            new LoadingBouncingGrid.circle(
+            new LoadingBouncingGrid.square(
               size: miscScreenIconSize,
               backgroundColor: accentColor,
             )
