@@ -12,11 +12,16 @@
 
 ## Download :inbox_tray:
 
-- *The Black Unicorn* (v.1.0.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.0.0-BlackUnicorn-Release.apk) (18.2 MB)
-- *The Speed Update* (v.1.1.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.1.0/TheMansion-v1.1.0-SpeedUpdate-Release.apk) (17.5 MB)
-- *The Smoothness Update* (v.1.2.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.2.0/TheMansion-v1.2.0-SmoothnessUpdate-Release.apk) (17.5 MB)
-- *The March Update* (v.1.3.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.3.0/TheMansion-v1.3.0-MarchUpdate-Release.apk) (17.2 MB)
-- *The Clarity Update* (v.1.4.0): [Download](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.4.0/TheMansion-v1.4.0-ClarityUpdate-Release.apk) (17.2 MB)
+- *The Black Unicorn* (v.1.0.0): 
+  - [Download for Android](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.0.0/TheMansion-v1.0.0-BlackUnicorn-Release.apk) (18.2 MB)
+- *The Speed Update* (v.1.1.0): 
+  - [Download for Android](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.1.0/TheMansion-v1.1.0-SpeedUpdate-Release.apk) (17.5 MB)
+- *The Smoothness Update* (v.1.2.0): 
+  - [Download for Android](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.2.0/TheMansion-v1.2.0-SmoothnessUpdate-Release.apk) (17.5 MB)
+- *The March Update* (v.1.3.0): 
+  - [Download for Android](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.3.0/TheMansion-v1.3.0-MarchUpdate-Release.apk) (17.2 MB)
+- *The Clarity Update* (v.1.4.0): 
+  - [Download for Android](https://github.com/iamtheblackunicorn/theMansion/releases/download/v.1.4.0/TheMansion-v1.4.0-ClarityUpdate-Release.apk) (17.2 MB)
 
 ## Building :hammer:
 
