@@ -2,7 +2,7 @@
  <img src="https://github.com/iamtheblackunicorn/theMansion/raw/main/assets/images/banner.png"/>
 </p>
 
-# THE MANSION
+# THE MANSION :unicorn:
 
 *Reading great content on your device.* :black_heart: :unicorn:
 
@@ -94,5 +94,5 @@ const Locale('languagecode', ''),
 
 ## Note :scroll:
 
-- *The Mansion* :unicorn: by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
-- licensed under the MIT license.
+- *The Mansion :unicorn:* by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
+- Licensed under the MIT license.
