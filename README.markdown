@@ -67,25 +67,25 @@ const Locale('languagecode', ''),
 
 ## Changelog :black_nib:
 
-### Version 1.0.0: Initial Release:
+### Version 1.0.0: Initial Release
 
 - upload to GitHub
 - polishing of the logic
 - minor fixes
 
-### Version 1.1.0: Speed Update:
+### Version 1.1.0: Speed Update
 
 - API is now directly pulled from the interwebs
 - smooth animations and loading times
 - better error handling
 
-### Version 1.2.0: The Smoothness Update:
+### Version 1.2.0: The Smoothness Update
 
 - added sorting of posts
 - added content updates
 - minor fixes
 
-### Version 1.3.0: The March Update:
+### Version 1.3.0: The March Update
 
 - many new design improvements
 - minor fixes
